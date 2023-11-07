@@ -21,7 +21,6 @@ namespace Task_Manager_Web_API.Models
         public DateTime Created { get; set; } = DateTime.Now;
 
         //Relations
-        public User Author { get; set; }
         public User User { get; set; }
 
         //Constructors

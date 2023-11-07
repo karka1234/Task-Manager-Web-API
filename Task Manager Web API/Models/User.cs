@@ -23,7 +23,7 @@ namespace Task_Manager_Web_API.Models
         public Role AppRole { get; set; }
 
         //Relations
-        public List<Assignment> Tasks { get; set; }
+        public List<Assignment> Assignments { get; set; }
 
 
 
