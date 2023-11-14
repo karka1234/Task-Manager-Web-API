@@ -1,6 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using static Task_Manager_Web_API.Enums.Enums;
 
 namespace Task_Manager_Web_API.Services
 {
@@ -13,11 +14,12 @@ namespace Task_Manager_Web_API.Services
             _configuration = configuration;
         }
 
-        public string GetJwtToken(string username)
+        public string GetJwtToken(string username, Role role)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, username)
+                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.Role, role.ToString() ?? "")
             };
 
             var secret = _configuration["Jwt:Key"];

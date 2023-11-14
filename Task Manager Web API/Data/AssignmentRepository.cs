@@ -1,5 +1,5 @@
 ﻿using Task_Manager_Web_API.Database;
-using Task_Manager_Web_API.Enums;
+using static Task_Manager_Web_API.Enums.Enums;
 using Task_Manager_Web_API.Models;
 
 namespace Task_Manager_Web_API.Data
@@ -65,6 +65,6 @@ namespace Task_Manager_Web_API.Data
             return assignment.DueDate;
         }
 
-
+        
     }
 }

@@ -1,4 +1,4 @@
-﻿using Task_Manager_Web_API.Enums;
+﻿using static Task_Manager_Web_API.Enums.Enums;
 
 namespace Task_Manager_Web_API.Requests
 {

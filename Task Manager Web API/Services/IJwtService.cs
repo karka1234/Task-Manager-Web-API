@@ -1,7 +1,9 @@
-﻿namespace Task_Manager_Web_API.Services
+﻿using static Task_Manager_Web_API.Enums.Enums;
+
+namespace Task_Manager_Web_API.Services
 {
     public interface IJwtService
     {
-        string GetJwtToken(string username);
+        public string GetJwtToken(string username, Role role);
     }
 }

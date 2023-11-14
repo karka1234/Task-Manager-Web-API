@@ -6,6 +6,7 @@ using System.Text;
 using Task_Manager_Web_API.Data;
 using Task_Manager_Web_API.Database;
 using Task_Manager_Web_API.Services;
+using Task_Manager_Web_API.Services.Adapters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAssignmentAdapter, AssignmentAdapter>();
 
 // Database realated
 var connString = builder.Configuration.GetConnectionString("Database");

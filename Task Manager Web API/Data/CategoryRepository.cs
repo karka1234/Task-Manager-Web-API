@@ -1,5 +1,5 @@
 ﻿using Task_Manager_Web_API.Database;
-using Task_Manager_Web_API.Enums;
+using static Task_Manager_Web_API.Enums.Enums;
 using Task_Manager_Web_API.Models;
 
 namespace Task_Manager_Web_API.Data
@@ -15,7 +15,7 @@ namespace Task_Manager_Web_API.Data
             _assignmentRepository = assignmentRepository;
         }
 
-        //add
+       //add
         public void AddCategory(Category category)
         {
             _context.Categoryes.Add(category);
@@ -50,6 +50,6 @@ namespace Task_Manager_Web_API.Data
             var category = GetCategoryByName(categoryName);
             return category.Assignments;
         }
-
+     
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using Task_Manager_Web_API.Data;
 using Task_Manager_Web_API.Database;
-using Task_Manager_Web_API.Enums;
+using Task_Manager_Web_API.Dto;
+using static Task_Manager_Web_API.Enums.Enums;
 using Task_Manager_Web_API.Models;
 
 namespace Task_Manager_Web_API.Services
@@ -13,8 +15,24 @@ namespace Task_Manager_Web_API.Services
         {
             _context = context;
         }
+        public User RegisterNewUser(string userName, string password)
+        {
+            var user = CreateUser(userName, password);
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return user;
+        }
 
-        public User CreateUser(string userName, string password, JobTitle jobTitle)
+        public LoginResponseDTO Login(string userName, string password)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.UserName == userName);
+            if (user == null)
+                return new LoginResponseDTO(false);
+            var isSuccess = VerifyPasswordHash(password, user.Password, user.PasswordSalt);
+            return new LoginResponseDTO(isSuccess, user.AppRole);
+        }
+
+        public User CreateUser(string userName, string password)
         {
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
             return new User
@@ -22,7 +40,7 @@ namespace Task_Manager_Web_API.Services
                 UserName = userName,
                 Password = passwordHash,
                 PasswordSalt = passwordSalt,
-                Job = jobTitle                
+                AppRole = Role.User                
             };
         }
 
