@@ -34,3 +34,7 @@ Implement pagination for listing tasks.
 Sending notifications or reminders for due tasks.
 Implement role-based access control.
 Incorporate logging and monitoring for API activities.
+
+
+![image](https://github.com/karka1234/Task-Manager-Web-API/assets/5184302/46d78c96-b249-4e6e-96e6-f7befac77ee2)
+
