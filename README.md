@@ -1,5 +1,7 @@
 # Task Manager Web API
 
+PROJECT NOT FINISHED
+
 Task Manager Web API Exercise:
 Scenario:You're tasked with developing a Task Manager Web API. This API will handle tasks, their categories, and user access.
 Requirements:
